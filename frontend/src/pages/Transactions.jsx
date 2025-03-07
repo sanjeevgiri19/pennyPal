@@ -125,6 +125,7 @@ const Transactions = () => {
 
     return (
       <>
+        <title>PennyPal | Transactions</title>
         {isModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-blue-200/70 bg-opacity-50">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative max-h-[90vh] overflow-y-auto">
@@ -170,7 +171,7 @@ const Transactions = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-3"> 
+                <div className="flex flex-wrap gap-3">
                   {/* Types */}
                   {/* <div className="w-full flex-1 mb-6 md:mb-0">
                     <label

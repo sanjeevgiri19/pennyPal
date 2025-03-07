@@ -74,6 +74,7 @@ const SignUpPage = () => {
 
   return (
     <div className="h-screen flex justify-center bg-black items-center">
+      <title>PennyPal | Signup</title>
       <div className="flex rounded-lg overflow-hidden z-50 bg-transparent">
         <div className="w-full min-w-80 sm:min-w-96 border border-zinc-400 flex items-center justify-center">
           <div className="max-w-md w-full p-6">
@@ -145,7 +146,7 @@ const SignUpPage = () => {
                 <p>{error.message}</p>
               </div>
             )}
-            
+
             <div className="mt-4 text-sm text-gray-400 text-center">
               <p>
                 Already have an account?{" "}

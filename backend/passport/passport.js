@@ -23,18 +23,22 @@ export const configurePassport = async () => {
 
         return done(null, user); // Authentication successful, return user
       } catch (error) {
-        return done(error); //handle errors
+        return done(error);
       }
     })
   );
 
   // serialization is the process of converting the user's object into a format that can be stored and retrieved easily.
 
+  // serializeUser(): This method is called when a user is successfully authenticated. It stores a piece of user information (like user.id) in the session.
+
   //serialize user (store user id in session)
   passport.serializeUser((user, done) => {
     console.log("Serializing User", user._id);
     done(null, user.id);
   });
+
+  // deserializeUser(): When a request comes in with the session information, deserializeUser() retrieves the user object from the database using the stored user ID.
 
   //deserialize user (retrieve user from session)
   passport.deserializeUser(async (id, done) => {

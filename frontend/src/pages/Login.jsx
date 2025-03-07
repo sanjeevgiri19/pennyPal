@@ -52,6 +52,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex justify-center bg-black items-center h-screen">
+      <title>PennyPal | Login</title>
       <div className="flex rounded-lg overflow-hidden z-50 ">
         <div className="w-full bg-transparent border-2 border-zinc-400 min-w-80 sm:min-w-96 flex items-center justify-center">
           <div className="max-w-md w-full p-6">

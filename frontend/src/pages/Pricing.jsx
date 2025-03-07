@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/things/Navbar";
 
 const Pricing = () => {
   return (
-    <div>
-        <Navbar />
+    <>
+      <title>PennyPal | Pricing</title>
+      <Navbar />
       <div className="bg-gray-100 py-16 relative overflow-hidden">
-
         <div className="absolute inset-0 z-0">
           <svg
             className="absolute bottom-0 left-0 w-full h-1/3 opacity-20"
@@ -14,7 +14,7 @@ const Pricing = () => {
             preserveAspectRatio="none"
           >
             <path
-              fill="#166534" 
+              fill="#166534"
               fillOpacity="0.5"
               d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,160C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             />
@@ -25,7 +25,7 @@ const Pricing = () => {
             preserveAspectRatio="none"
           >
             <path
-              fill="#1e3a8a" 
+              fill="#1e3a8a"
               fillOpacity="0.4"
               d="M0,32L48,53.3C96,75,192,117,288,138.7C384,160,480,160,576,138.7C672,117,768,75,864,58.7C960,43,1056,53,1152,80C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             />
@@ -146,7 +146,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

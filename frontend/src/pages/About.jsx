@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="bg-gradient-to-r from-zinc-100/60 to-blue-100/40">
       {/* <Helmet> */}
-      <title>About Us | Clarity Finance</title>
+      <title>PennyPal   |  About</title>
       {/* </Helmet> */}
 
       <Navbar />

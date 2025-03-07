@@ -143,6 +143,7 @@ const DashBoard = () => {
 
   return (
     <div className="bg-zinc-50 min-h-screen">
+      <title>PennyPal | Dashboard</title>
       <Navbar />
       <div className="flex justify-between px-16 py-10 ">
         <h2 className="text-3xl font-semibold">Dashboard</h2>
@@ -250,7 +251,6 @@ const DashBoard = () => {
                       >
                         <td className="py-4 pl-4">
                           <div className="flex items-center">
-
                             {/* {transaction.category === "expense" ? (
                             <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-red-100 rounded-full text-red-500">
                               ↓
@@ -273,7 +273,6 @@ const DashBoard = () => {
                           </div>
                         </td>
 
-                        
                         <td className="py-4 pr-4 text-right">
                           <span
                             className={`font-medium ${

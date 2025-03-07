@@ -11,12 +11,12 @@ const NotFound = () => {
                 className="w-64 h-72"
               />
             </div>
-            <p className="text-sm md:text-base text-[#F6009B] p-2 mb-4">
+            <p className="text-sm md:text-base text-green-500 p-2 mb-4">
               The stuff you were looking for doesnt exist
             </p>
             <a
               href="/"
-              className="bg-transparent hover:bg-[#F6009B] text-[#F6009B] hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-[#F6009B] hover:border-transparent"
+              className="bg-green-100/80 hover:bg-green-400 text-green-500 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-green-600 hover:border-transparent"
             >
               Take me home
             </a>

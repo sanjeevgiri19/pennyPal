@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound";
 import NewUI from "./components/ui/NewUI";
 import Transactions from "./pages/Transactions";
 import About from "./pages/About";
-import Pricing from "./components/things/Pricing";
+import Pricing from "./pages/Pricing";
 import DashBoard from "./pages/DashBoard";
 import Loading from "./components/things/Loading";
 
