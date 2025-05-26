@@ -1,10 +1,4 @@
 @import "tailwindcss";
-/* 
-body{
-  background-color: black;
-  height: 100%;
-  width: 100%;
-} */
 
 html,
 body {
@@ -15,23 +9,9 @@ body {
   height: 100%   ;
 }
 
-/* ensure all child elements do not exceed the viewpoint width */
 * {
   /* max-width: 100%; */
   box-sizing: border-box;
 }
 
 
-
-/* @keyframes slides {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.logos:hover .logo_items {
-  animation-play-state: paused;
-} */

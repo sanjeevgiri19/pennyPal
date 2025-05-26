@@ -66,7 +66,7 @@ const userResolver = {
           throw new Error("Session not initialized");
         }
 
-        context.req.session.user = user; // Store user info in session
+        context.req.session.user = user; 
         
         await context.login(user);
         return user;
@@ -111,17 +111,7 @@ const userResolver = {
     },
   },
 
-  // User: {
-  //   transactions: async (parent) => {
-  //     try {
-  //       const transactions = await Transaction.find({userId: parent._id})
-  //       return transactions;
-  //     } catch (error) {
-  //       console.log("Error in user.transactions resolver", error);
-  //       throw new Error(error.message || "Internal Server Error");
-  //     }
-  //   },
-  // },
+  
   User: {
     transactions: async (parent) => {
       try {

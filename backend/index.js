@@ -20,7 +20,6 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 const httpServer = http.createServer(app);
 
-//  Initialize MongoDB Session Store
 const MongoDBStore = ConnectMongoDBSession(session);
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI,
@@ -68,7 +67,7 @@ app.use(
   })
 );
 
-configurePassport(); // Load Passport Strategies
+configurePassport(); 
 app.use(passport.initialize());
 app.use(passport.session());
 

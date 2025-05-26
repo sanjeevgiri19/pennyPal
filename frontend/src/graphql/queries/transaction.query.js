@@ -22,20 +22,7 @@ export const GET_TRANSACTIONs = gql`
   }
 `;
 
-// export const GET_ALL_TRANSACTIONS = gql`
-//   query GetAllTransactions {
-//     getAllTransactions {
-//       _id
-//       type
-//       amount
-//       category
-//       description
-//       date
-//       paymentType
-//       userId
-//     }
-//   }
-// `;
+
 
 // single/specific transaction
 export const GET_TRANSACTION = gql`
@@ -83,6 +70,7 @@ export const GET_TRANSACTION_STATISTICS = gql`
   }
 `;
 
+//relations
 // export const GET_TRANSACTION_STATISTICS = gql`
 //   query GetTransactionStatistics {
 //     transactions {

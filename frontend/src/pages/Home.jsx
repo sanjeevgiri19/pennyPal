@@ -53,7 +53,7 @@ const Home = () => {
 
       const backgroundColors = [];
       const borderColors = [];
-      const labels = [];
+      // const labels = [];
 
       categories.forEach((category) => {
         if (category === "saving") {
@@ -80,32 +80,7 @@ const Home = () => {
         ],
       }));
 
-      //here the colors of chart are randomly generated in every refresh
-
-      // categories.forEach((category) => {
-      //   labels.push(category)
-      //   const r = Math.floor(Math.random() * 255);
-      //   const g = Math.floor(Math.random() * 255);
-      //   const b = Math.floor(Math.random() * 255);
-      //   backgroundColor.push(`rgba(${r}, ${g}, ${b}, 0.9)`);
-      //   borderColor.push(`rgba(${r}, ${g}, ${b}, 1)`);
-      // });
-
-      // setChartData({
-      //   labels,
-      //   datasets: [
-      //     {
-      //       label: "$",
-      //       data: totalAmount,
-      //       backgroundColor,
-      //       borderColor,
-      //       borderWidth: 1,
-      //       borderRadius: 30,
-      //       spacing: 10,
-      //       cutout: 130,
-      //     },
-      //   ],
-      // });
+     
     }
   }, [data]);
   const handleLogout = async () => {
@@ -127,7 +102,6 @@ const Home = () => {
       console.error("Error logging out", error);
       toast.error(error.message);
     }
-
     // console.log("Logging out ...");
   };
 
@@ -168,10 +142,7 @@ const Home = () => {
         {/* <CardTrans /> */}
       </div>
 
-      {/* <div className="max-w-2xl mx-auto p-4">
-        <h1 className="relative z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
-        </h1>
-      </div> */}
+     
 
       <BackgroundBeams />
     </div>

@@ -71,13 +71,4 @@ const App = () => {
 
 export default App;
 
-// todo :
-// 1.make a modal for transaction
-// 2. update total balance , income and expenses
-// 3. pricing , about section
-// 4. when clicking on login , take to login form abnd after login, display it as logout in red button,
-// 5. display something for auth user and hide something for un-auth user
-// 6. delete or commment all console logs
-// 8. make it responsive
-// 9. update infinite logo courasel
-// 7. make more categories, payment type and types as possible changing backend also,
+

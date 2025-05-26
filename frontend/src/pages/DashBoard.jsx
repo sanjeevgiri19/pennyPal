@@ -15,7 +15,6 @@ const DashBoard = () => {
   const { loading, data } = useQuery(GET_TRANSACTION_STATISTICS);
 
   // console.log("Query Status:", { loading, error, data });
-
   // console.log("data", data);
 
   const [chartData, setChartData] = useState({

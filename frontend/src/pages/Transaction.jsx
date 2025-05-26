@@ -18,11 +18,7 @@ const TransactionPage = () => {
     variables: { transactionId: id },
   });
 
-  // console.log("transaction", data);
-  // if (error) {
-  //   toast.error(error.message);
-  //   return null;
-  // }
+  
 
   const [updateTransaction, { loading: loadingUpdate }] = useMutation(
     UPDATE_TRANSACTION,

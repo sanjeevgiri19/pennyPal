@@ -1,3 +1,5 @@
 node_modules
 .env
 read.md
+transaction.resolver.eg.js
+passport.eg.js

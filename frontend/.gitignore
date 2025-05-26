@@ -12,6 +12,7 @@ node_modules
 card.txt
 dist
 dist-ssr
+todo.js
 *.local
 
 # Editor directories and files

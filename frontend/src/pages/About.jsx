@@ -6,9 +6,7 @@ import Navbar from "../components/things/Navbar";
 const About = () => {
   return (
     <div className="bg-gradient-to-r from-zinc-100/60 to-blue-100/40">
-      {/* <Helmet> */}
       <title>PennyPal   |  About</title>
-      {/* </Helmet> */}
 
       <Navbar />
       <div className="pt-32 pb-20 px-4 md:px-6">

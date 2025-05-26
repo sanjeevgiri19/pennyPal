@@ -82,7 +82,7 @@ const Card = ({ transaction }) => {
         },
       });
       toast.success("Transaction Updated Successfully");
-      setIsModalOpen(false); // Close modal on success
+      setIsModalOpen(false); 
     } catch (error) {
       console.error("error updating transaction:", error);
       toast.error(error.message);

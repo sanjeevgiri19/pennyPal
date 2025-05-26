@@ -41,7 +41,6 @@ const Pricing = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Free Tier - Rivers and Forests */}
             <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-green-600 transform hover:scale-105 transition-transform duration-300">
               <div className="flex items-center justify-center mb-4">
                 <svg
@@ -92,7 +91,6 @@ const Pricing = () => {
               </button>
             </div>
 
-            {/* Pro Tier - Mountains and Peaks */}
             <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-blue-700 transform hover:scale-105 transition-transform duration-300">
               <div className="flex items-center justify-center mb-4">
                 <svg

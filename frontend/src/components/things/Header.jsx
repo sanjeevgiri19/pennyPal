@@ -15,7 +15,6 @@ const Header = () => {
 
   return (
     <div className="bg-zinc-50 relative z-50 overflow-hidden">
-      {/* Background animated mountains svgs*/}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-1 himalaya-gradient">
           <svg
