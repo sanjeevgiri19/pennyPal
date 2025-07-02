@@ -3,14 +3,14 @@ import { Doughnut } from "react-chartjs-2";
 import { BackgroundBeams } from "../components/ui/Background-beams";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { MdLogout } from "react-icons/md";
-// import Cards from "../components/Cards/Cards";
+import Cards from "../components/Cards";
 import toast from "react-hot-toast";
 import { useMutation, useQuery } from "@apollo/client";
 import { LOGOUT } from "../graphql/mutations/user.mutation";
 import { GET_TRANSACTION_STATISTICS } from "../graphql/queries/transaction.query";
 import { useEffect, useState } from "react";
 import { GET_AUTH_USER } from "../graphql/queries/user.query";
-import TransactionForm from "../components/Cards/TransactionForm";
+import TransactionForm from "../components/TransactionForm";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -133,7 +133,7 @@ const Home = () => {
         )}
 
         <TransactionForm />
-        {/* <Cards /> */}
+        <Cards />
         {/* <CardTrans /> */}
       </div>
 
