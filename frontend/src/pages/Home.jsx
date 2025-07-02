@@ -3,7 +3,7 @@ import { Doughnut } from "react-chartjs-2";
 import { BackgroundBeams } from "../components/ui/Background-beams";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { MdLogout } from "react-icons/md";
-import Cards from "../components/Cards/Cards";
+// import Cards from "../components/Cards/Cards";
 import toast from "react-hot-toast";
 import { useMutation, useQuery } from "@apollo/client";
 import { LOGOUT } from "../graphql/mutations/user.mutation";
@@ -133,7 +133,7 @@ const Home = () => {
         )}
 
         <TransactionForm />
-        <Cards />
+        {/* <Cards /> */}
         {/* <CardTrans /> */}
       </div>
 
