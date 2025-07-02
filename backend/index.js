@@ -9,16 +9,18 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import bodyParser from "body-parser";
-
 import mergedResolver from "./resolvers/index.js";
 import mergedTypeDefs from "./typeDefs/index.js";
 import connectDB from "./db/connectDB.js";
 import { configurePassport } from "./passport/passport.js";
+import path from "path";
 
 dotenv.config();
 const PORT = process.env.PORT || 9000;
 const app = express();
 const httpServer = http.createServer(app);
+
+const _dirname = path.resolve();
 
 const MongoDBStore = ConnectMongoDBSession(session);
 const store = new MongoDBStore({
@@ -27,29 +29,38 @@ const store = new MongoDBStore({
 });
 store.on("error", (err) => console.error("Session Store Error:", err));
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
-  process.env.CORS_ORIGIN,
-].filter(Boolean);
+express.json();
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(
-          new Error("CORS policy does not allow this origin"),
-          false
-        );
-      }
-      return callback(null, true);
-    },
-    credentials: true,
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "http://localhost:3001",
+//   process.env.CORS_ORIGIN,
+// ].filter(Boolean);
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         return callback(
+//           new Error("CORS policy does not allow this origin"),
+//           false
+//         );
+//       }
+//       return callback(null, true);
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 //jaile pani session middleware lai passport vanda paila lekhni (in most cases)
 app.use(
@@ -67,7 +78,7 @@ app.use(
   })
 );
 
-configurePassport(); 
+configurePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -125,9 +136,14 @@ async function startServer() {
     })
   );
 
-  app.get("/", (req, res) => {
-    console.log("Server is running...");
-    res.send("GraphQL Server is running!");
+  // app.get("/", (req, res) => {
+  //   console.log("Server is running...");
+  //   res.send("GraphQL Server is running!");
+  // });
+
+  app.use(express.static(path.join(_dirname, "/frontend/dist/")));
+  app.get("*", (_, res) => {
+    res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
   });
 
   await connectDB();

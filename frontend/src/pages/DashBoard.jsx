@@ -14,9 +14,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const DashBoard = () => {
   const { loading, data } = useQuery(GET_TRANSACTION_STATISTICS);
 
-  // console.log("Query Status:", { loading, error, data });
-  // console.log("data", data);
-
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -250,7 +247,7 @@ const DashBoard = () => {
                       >
                         <td className="py-4 pl-4">
                           <div className="flex items-center">
-                            {/* {transaction.category === "expense" ? (
+                            {transaction.category === "expense" ? (
                             <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-red-100 rounded-full text-red-500">
                               ↓
                             </span>
@@ -258,7 +255,7 @@ const DashBoard = () => {
                             <span className="inline-flex items-center justify-center w-5 h-5 mr-2 bg-green-100 rounded-full text-green-500">
                               ↑
                             </span>
-                          )} */}
+                          )}
 
                             <div>
                               <p className="font-medium">

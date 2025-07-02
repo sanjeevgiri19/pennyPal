@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import Button from "./Buttons";
+// import Button from "./Buttons";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_AUTH_USER } from "../../graphql/queries/user.query";
 import { LOGOUT } from "../../graphql/mutations/user.mutation";
 import { MdLogout } from "react-icons/md";
 import { FaBars, FaTimes } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { data } = useQuery(GET_AUTH_USER);
-  // console.log("authUserData", data);
-
   const [logout, { loading, client }] = useMutation(LOGOUT, {
     // refetchQueries: [{ query: GET_AUTH_USER }],
 
@@ -37,11 +36,8 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = async () => {
-    // console.log("user is logging out");
-
     try {
-      const { data } = await logout();
-      // console.log("Logout response:", data);
+      await logout();
 
       // Sometimes, you might want to reset the cache entirely, such as when a user logs out.
       //  To accomplish this, call client.resetStore.
@@ -55,13 +51,13 @@ const Navbar = () => {
       console.error("Error logging out", error);
       toast.error(error.message);
     }
-
-    // console.log("Logging out ...");
   };
 
   return (
-    <div className="bg-zinc-100 z-20 flex px-4 sm:px-16 py-2 text-md justify-between items-center w-full  top-0">
-      <img src="/logos.svg" alt="PennyPal" className="h-20" />
+    <div className="bg-zinc-100 z-50 flex px-4 sm:px-16 py-2 text-md justify-between items-center w-full  top-0">
+      <Link to="/">
+        <img src="/logos.svg" alt="PennyPal" className="h-20" />
+      </Link>
 
       <button
         className="sm:hidden text-2xl text-gray-800 focus:outline-none"
@@ -96,38 +92,38 @@ const Navbar = () => {
 
       {/* mobile view  */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-green-200/90 sm:hidden flex flex-col items-center gap-4 py-4 z-50">
+        <div className="absolute top-16 left-0 w-full bg-gray-200/90  sm:hidden flex flex-col items-center gap-4 py-4 z-50">
           <Link
-            to="/new"
-            className="hover:text-[#0070f0]"
+            to="/"
+            className="hover:text-[#0070f0] border-b-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/transactions"
-            className="hover:text-[#0070f0]"
+            className="hover:text-[#0070f0] border-b-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Transactions
           </Link>
           <Link
             to="/dashboard"
-            className="hover:text-[#0070f0]"
+            className="hover:text-[#0070f0] border-b-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Dashboard
           </Link>
           <Link
             to="/pricing"
-            className="hover:text-[#0070f0]"
+            className="hover:text-[#0070f0] border-b-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Pricing
           </Link>
           <Link
             to="/about"
-            className="hover:text-[#0070f0]"
+            className="hover:text-[#0070f0] border-b-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             About
@@ -136,7 +132,7 @@ const Navbar = () => {
       )}
 
       {/* User Profile and Login/Logout */}
-      <div className="flex gap-2 items-center" ref={dropdownRef}>
+      <div className="flex gap-2  items-center" ref={dropdownRef}>
         {data?.authUser && (
           <img
             src={data?.authUser?.profilePicture}
@@ -147,7 +143,7 @@ const Navbar = () => {
         )}
 
         {isDropdownOpen && (
-          <div className="absolute right-4 z-50 top-12 mt-2 w-36 bg-white rounded-lg shadow-lg border border-gray-200">
+          <div className="absolute right-4 z-50 top-14 mt-2 w-36 bg-white rounded-lg shadow-lg border border-gray-200">
             <div className="p-3">
               <p className="text-sm font-semibold text-gray-800">
                 Name: {data.authUser.name}
@@ -181,7 +177,7 @@ const Navbar = () => {
             Login
           </Link>
         )} */}
-        
+
         {
           !data.authUser && (
             <div className="flex gap-3">

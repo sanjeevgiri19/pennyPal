@@ -1,6 +1,6 @@
 import React from "react";
 import HomeCard from "../layout/HomeCard";
-import Testimonials from "./Testimonials";
+import Testimonials from "../Cards/Testimonials";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import LogoSlider from "./LogoSlider";
@@ -14,7 +14,7 @@ const Header = () => {
   // console.log(data);
 
   return (
-    <div className="bg-zinc-50 relative z-50 overflow-hidden">
+    <div className="bg-zinc-50 relative  overflow-hidden">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-1 himalaya-gradient">
           <svg
@@ -45,7 +45,7 @@ const Header = () => {
           </svg>
         </div>
       </div>
-      <div className="relative z-10 pt-10">
+      <div className="relative  pt-10">
         <h2 className="text-md text-green-700 mx-auto text-center rounded-full w-72 bg-green-200/70">
           Financial Clarity, Financial Freedom.
         </h2>
@@ -91,11 +91,6 @@ const Header = () => {
       </div>
 
       <div className="bg-zinc-50 pt-">
-        {/* <img
-          src="/moneysave.jpg"
-          alt=""
-          className="w-[90%] sm:w-[70%] md:w-[80%] lg:w-[65%] bg-gradient-to-b from-white to-gray-50 h-[50vh] sm:h-[62vh] md:h-[70vh] lg:h-[75vh] mx-auto rounded-xl"
-        /> */}
         <HeroImage />
       </div>
 

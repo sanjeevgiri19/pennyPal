@@ -1,25 +1,17 @@
 import { useEffect, useState } from "react";
-// import { BackgroundBeams } from "../components/ui/Background-beams";
 import { useMutation, useQuery } from "@apollo/client";
-// import { GET_TRANSACTION } from "../graphql/queries/transaction.query";
-// import TransactionFormSkeleton from "../components/layout/TransactionFormSkeleton";
 import { useParams } from "react-router-dom";
-// import { UPDATE_TRANSACTION } from "../graphql/mutations/transaction.mutation";
 import toast from "react-hot-toast";
 import { GET_TRANSACTION } from "../../graphql/queries/transaction.query";
 import { UPDATE_TRANSACTION } from "../../graphql/mutations/transaction.mutation";
 import TransactionFormSkeleton from "../layout/TransactionFormSkeleton";
-// import { BackgroundBeams } from "../components/ui/Background-beams";
 
 const TransactionPage = () => {
   const { id } = useParams();
-  console.log("id", id);
-
   const { data, loading } = useQuery(GET_TRANSACTION, {
     variables: { transactionId: id },
   });
 
-  console.log("transaction", data);
   // if (error) {
   //   toast.error(error.message);
   //   return null;
@@ -42,7 +34,6 @@ const TransactionPage = () => {
     date: "",
   });
 
-  console.log("transssssssssss", data);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

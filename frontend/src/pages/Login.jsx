@@ -27,7 +27,6 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(loginData);
     const { username, password } = loginData;
     if (!username || !password) {
       toast.error("All fields are Required");
@@ -51,7 +50,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center bg-black items-center h-screen">
+    <div className="flex justify-center bg-zinc-500 items-center h-screen">
       <title>PennyPal | Login</title>
       <div className="flex rounded-lg overflow-hidden z-50 ">
         <div className="w-full bg-transparent border-2 border-zinc-400 min-w-80 sm:min-w-96 flex items-center justify-center">

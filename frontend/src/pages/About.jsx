@@ -1,4 +1,3 @@
-// import { Helmet } from "react-helmet";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Footer from "../components/things/Footer";
 import Navbar from "../components/things/Navbar";

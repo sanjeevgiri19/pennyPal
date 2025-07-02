@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { BackgroundBeams } from "../components/ui/Background-beams";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_TRANSACTION } from "../graphql/queries/transaction.query";
 import TransactionFormSkeleton from "../components/layout/TransactionFormSkeleton";
@@ -10,15 +9,11 @@ import { BackgroundBeams } from "../components/ui/Background-beams";
 
 
 const TransactionPage = () => {
-  const { id } = useParams();
-  // console.log("id", id);
 
-  // useQuery => {data, error, loading}
+  const { id } = useParams();
   const {  data } = useQuery(GET_TRANSACTION, {
     variables: { transactionId: id },
   });
-
-  
 
   const [updateTransaction, { loading: loadingUpdate }] = useMutation(
     UPDATE_TRANSACTION,
@@ -42,7 +37,6 @@ const TransactionPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const amount = parseFloat(formData.amount); // convert amount to number bcz by default it is string and the reason it is coming from an input field
-    // console.log("formData", formData);
     try {
       await updateTransaction({
         variables: {

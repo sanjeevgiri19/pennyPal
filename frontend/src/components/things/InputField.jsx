@@ -1,11 +1,12 @@
-
 import { cn } from "../../lib/utils";
-
 
 const InputField = ({ label, id, name, type = "text", onChange, value }) => {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-300/80">
+      <label
+        htmlFor={id}
+        className="block text-sm font-medium text-gray-300/80"
+      >
         {label}
       </label>
       <input

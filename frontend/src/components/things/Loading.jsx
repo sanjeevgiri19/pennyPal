@@ -1,5 +1,3 @@
-
-
 import { BounceLoader } from "react-spinners";
 
 const Loading = () => {

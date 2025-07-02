@@ -3,23 +3,20 @@ import { Doughnut } from "react-chartjs-2";
 import { BackgroundBeams } from "../components/ui/Background-beams";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { MdLogout } from "react-icons/md";
-import Cards from "../components/Cards";
+import Cards from "../components/Cards/Cards";
 import toast from "react-hot-toast";
 import { useMutation, useQuery } from "@apollo/client";
 import { LOGOUT } from "../graphql/mutations/user.mutation";
 import { GET_TRANSACTION_STATISTICS } from "../graphql/queries/transaction.query";
 import { useEffect, useState } from "react";
 import { GET_AUTH_USER } from "../graphql/queries/user.query";
-import TransactionForm from "../components/TransactionForm";
+import TransactionForm from "../components/Cards/TransactionForm";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Home = () => {
   const { data } = useQuery(GET_TRANSACTION_STATISTICS);
-  // console.log("transaction statistics data", data);
-
   const { data: authUserData } = useQuery(GET_AUTH_USER);
-  // console.log("authUserData", authUserData);
 
   const [logout, { loading, client }] = useMutation(LOGOUT, {
     // refetchQueries: [{ query: GET_AUTH_USER }],
@@ -79,8 +76,6 @@ const Home = () => {
           },
         ],
       }));
-
-     
     }
   }, [data]);
   const handleLogout = async () => {
@@ -106,10 +101,10 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-full gap-6 rounded-md bg-black relative flex flex-col items-center   mx-auto z-20  antialiased">
+    <div className="min-h-screen max-w-full gap-6 rounded-md bg-black relative flex flex-col items-center mx-auto antialiased">
       {/* {authUser && <Header />} */}
       <div className="flex items-center">
-        <p className="md:text-4xl text-2xl lg:text-4xl font-bold text-center relative z-50 mb-4 mr-4 bg-gradient-to-r from-pink-600 via-indigo-500 to-pink-400 inline-block text-transparent mt-10 bg-clip-text">
+        <p className="md:text-4xl text-2xl lg:text-4xl font-bold text-center relative  mb-4 mr-4 bg-gradient-to-r from-pink-600 via-indigo-500 to-pink-400 inline-block text-transparent mt-10 bg-clip-text">
           Spend wisely, track wisely
         </p>
 
@@ -141,8 +136,6 @@ const Home = () => {
         <Cards />
         {/* <CardTrans /> */}
       </div>
-
-     
 
       <BackgroundBeams />
     </div>

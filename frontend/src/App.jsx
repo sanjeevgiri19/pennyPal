@@ -28,9 +28,9 @@ const App = () => {
 
   return (
     <div className=" h-screen bg-zinc-50  w-screen">
-      {/* {data?.authUser && <Header />} */}
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        {/* this route is for my previous version */}
+        {/* <Route path="/" element={<Home />} /> */}    
         <Route
           path="/new"
           element={data.authUser ? <Home /> : <Navigate to="/login" />}

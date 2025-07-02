@@ -1,10 +1,4 @@
 import { Link } from "react-router-dom";
-// import {
-//   RiGithubFill,
-//   RiTwitterFill,
-//   RiInstagramLine,
-//   RiMoneyDollarCircleFill,
-// } from "remixicon-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -166,7 +160,7 @@ const Footer = () => {
           <p className="text-gray-600 text-sm">
             © {currentYear} PennyPal Finance. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0">
+          {/* <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
               <li>
                 <a
@@ -193,7 +187,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
