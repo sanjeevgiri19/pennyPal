@@ -13,12 +13,15 @@ import mergedResolver from "./resolvers/index.js";
 import mergedTypeDefs from "./typeDefs/index.js";
 import connectDB from "./db/connectDB.js";
 import { configurePassport } from "./passport/passport.js";
+import helmet from "helmet";
 import path from "path";
 
 dotenv.config();
 const PORT = process.env.PORT || 9000;
 const app = express();
 const httpServer = http.createServer(app);
+express.json();
+app.use(helmet());
 
 const _dirname = path.resolve();
 
@@ -28,8 +31,6 @@ const store = new MongoDBStore({
   collection: "sessions",
 });
 store.on("error", (err) => console.error("Session Store Error:", err));
-
-express.json();
 
 const corsOptions = {
   origin: process.env.CORS_ORIGIN,
