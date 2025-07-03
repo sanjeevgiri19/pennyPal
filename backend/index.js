@@ -8,7 +8,6 @@ import ConnectMongoDBSession from "connect-mongodb-session";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-import bodyParser from "body-parser";
 import mergedResolver from "./resolvers/index.js";
 import mergedTypeDefs from "./typeDefs/index.js";
 import connectDB from "./db/connectDB.js";
@@ -20,7 +19,6 @@ dotenv.config();
 const PORT = process.env.PORT || 9000;
 const app = express();
 const httpServer = http.createServer(app);
-express.json();
 app.use(helmet());
 
 const _dirname = path.resolve();
@@ -33,7 +31,8 @@ const store = new MongoDBStore({
 store.on("error", (err) => console.error("Session Store Error:", err));
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN,
+  origin:
+    process.env.CORS_ORIGIN || "https://pennypal-backend-1rqv.onrender.com/",
   credentials: true,
 };
 
@@ -131,7 +130,6 @@ async function startServer() {
   app.use(
     "/graphql",
     express.json(),
-    bodyParser.json(),
     expressMiddleware(server, {
       context: createContext,
     })
@@ -148,7 +146,7 @@ async function startServer() {
   });
 
   await connectDB();
-  httpServer.listen(PORT, () => {
+  httpServer.listen(PORT, "0.0.0.0", () => {
     console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
     console.log(`🔒 Environment: ${process.env.NODE_ENV}`);
   });
