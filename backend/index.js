@@ -33,7 +33,7 @@ const store = new MongoDBStore({
 store.on("error", (err) => console.error("Session Store Error:", err));
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN,
+  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
   credentials: true,
 };
 
@@ -137,10 +137,10 @@ async function startServer() {
     })
   );
 
-  // app.get("/", (req, res) => {
-  //   console.log("Server is running...");
-  //   res.send("GraphQL Server is running!");
-  // });
+  app.get("/", (req, res) => {
+    console.log("Server is running...");
+    res.send("GraphQL Server is running!");
+  });
 
   app.use(express.static(path.join(_dirname, "/frontend/dist/")));
   app.get("*", (_, res) => {
