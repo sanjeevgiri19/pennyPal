@@ -3,3 +3,4 @@ node_modules
 read.md
 transaction.resolver.eg.js
 passport.eg.js
+/node_modules
