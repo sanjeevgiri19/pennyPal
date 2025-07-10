@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon backend/index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "dev": "nodemon backend/index.js"
+    "dev": "nodemon backend/index.js",
+    "postinstall": "npm install --prefix frontend"
   },
   "author": "",
   "license": "ISC",
@@ -31,5 +32,8 @@
     "nodemon": "^3.1.9",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }

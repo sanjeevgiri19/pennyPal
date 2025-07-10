@@ -20,7 +20,7 @@ WORKDIR /app
 # Copy backend
 COPY --from=backend-build /app/backend ./backend
 
-# This puts the built frontend at /app/frontend/dist in the image, which matches what your backend expects.
+# This puts the built frontend at /app/frontend/dist in the image, which matches what your backend expect
 # Copy built frontend to backend's static folder
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
